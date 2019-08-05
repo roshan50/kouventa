@@ -59,13 +59,17 @@ function send_req(qst) {
         data: JSON.stringify(qst),
         dataType: 'json',
         contentType: 'application/json;charset=UTF-16',
-        success: function (res) { recieve_res(res); }
+        success: function (res) { console.log(res); recieve_res(res); },
+        error: function(xhr) {
+          console.log('failed');
+           console.log("Error: " + xhr.statusText);
+       }
     });
 }
 
 function recieve_res(res) {
     var msg = res[0];
-    var imgs_ids = res[1];
+    var imgs_ids = [44];//res[1];
     if (msg === " # ") {
         msg = "تعداد اقلامی که رزرو کردید: ";
         reserved.forEach(function (i) {

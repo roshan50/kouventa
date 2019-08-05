@@ -3,6 +3,8 @@ from keras.callbacks import Callback, ModelCheckpoint
 from keras.layers import CuDNNLSTM, LSTM, Dense, Embedding, Input, TimeDistributed
 from keras.models import Model
 from matplotlib import pyplot as plt
+from keras.callbacks import TensorBoard
+from time import time
 
 
 class WriteEpoch(Callback):
@@ -129,6 +131,7 @@ class BotModel():
         # Inference model
         self.encoderModel = None
         self.decoderModel = None
+        self.tensorboard = None
 
     def readData(self, dataFileList=['rawan.txt', 'rashad.txt'], synonymsFileList=['sims.txt']):
         self.dataHolder.readSynonyms(synonymsFileList)
@@ -180,6 +183,7 @@ class BotModel():
         model = Model([encoderInputs, decoderInputs], decoderOutputs)
         model.compile(optimizer='rmsprop',
                       loss='categorical_crossentropy', metrics=['acc'])
+        self.tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
         self.model = model
         self.encInputs = encoderInputs
@@ -207,6 +211,7 @@ class BotModel():
                                  verbose=2,
                                  validation_split=valSplit,
                                  callbacks=[writeEpoch,
+                                            self.tensorboard,
                                             ModelCheckpoint('weights.h5',
                                                             verbose=2,
                                                             save_weights_only=True)])
