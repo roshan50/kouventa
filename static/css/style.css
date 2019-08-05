@@ -31,11 +31,11 @@ body, html {
 .header-element {
     -webkit-text-shadow: 0 0 1px;
     text-shadow: 0 0 1px;
-    -moz-box-shadow: 0 0 1px #dc0099;
-    -webkit-box-shadow: 0 0 1px #dc0099;
-    box-shadow: 0 0 1px #dc0099;
+    -moz-box-shadow: 0 0 1px #ff5969;
+    -webkit-box-shadow: 0 0 1px #ff5969;
+    box-shadow: 0 0 1px #ff5969;
     text-align: center;
-    background-color: #dc0099;
+    background-color: #ff5969;
     color: white;
     padding: 20px;
     display: inline-block;
@@ -196,7 +196,7 @@ body, html {
     left: 5px;
     top: 5px;
     font-size: 25px;
-    background-color: #dc0099;
+    background-color: #ff5969;
     color: white;
     width: 35px;
     height: 35px;

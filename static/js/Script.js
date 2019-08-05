@@ -67,22 +67,22 @@ function recieve_res(res) {
     var msg = res[0];
     var imgs_ids = res[1];
     if (msg === " # ") {
-        msg = "أرقام القطع التي قمت بحجزها: ";
+        msg = "تعداد اقلامی که رزرو کردید: ";
         reserved.forEach(function (i) {
             msg += i + "   ";
         });
     }
-    if (male == false) {
-        if (msg.indexOf("تفضل") != -1) {
-            msg = msg.replace("تفضل", "تفضلي");
-        }
-        if (msg.indexOf("تكرم") != -1) {
-            msg = msg.replace("تكرم", "تكرمي");
-        }
-        if (msg.indexOf("اعد") != -1) {
-            msg = msg.replace("اعد", "اعيدي");
-        }
-    }
+    // if (male == false) {
+    //     if (msg.indexOf("تفضل") != -1) {
+    //         msg = msg.replace("تفضل", "تفضلي");
+    //     }
+    //     if (msg.indexOf("تكرم") != -1) {
+    //         msg = msg.replace("تكرم", "تكرمي");
+    //     }
+    //     if (msg.indexOf("اعد") != -1) {
+    //         msg = msg.replace("اعد", "اعيدي");
+    //     }
+    // }
     insert_chat('him', msg);
     if (imgs_ids.length != 0) {
         add_imgs(imgs_ids);
@@ -108,8 +108,8 @@ function add_imgs(ids) {
             var im = '<div id="i' + ids[i] + '" class="img-cont">' +
                 '<span class=\"img-id\">' + ids[i] + '</span>' +
                 '<img src="/static/images/' + ids[i] + '.jpg" />' +
-                '<div class="btns">' + '<button id="rbi' + ids[i] + '" class="btn">حجز</button>' +
-                '<button id="ubi' + ids[i] + '" class="btn">إلغاء حجز</button>' + '</div></div>';
+                '<div class="btns">' + '<button id="rbi' + ids[i] + '" class="btn">رزرو</button>' +
+                '<button id="ubi' + ids[i] + '" class="btn">لغو رزرو</button>' + '</div></div>';
             $(".store-imgs").append(im);
         }
     }, 550);
@@ -137,7 +137,7 @@ function add_func(i) {
         var tmp = reserved.indexOf(i);
         if (tmp == -1) {
             reserved.splice(0, 0, i);
-            insert_chat("him", "تم حجز القطعة " + i + " باسم " + uname + ". شكرا لك");
+            insert_chat("him", "این کالا رزرو شده است " + i + " به نام " + uname + "ممنون از شما.");
             console.log(reserved);
         }
     });
@@ -146,7 +146,7 @@ function add_func(i) {
         var tmp = reserved.indexOf(i);
         if (tmp != -1) {
             reserved.splice(tmp, 1);
-            insert_chat("him", "تم إلغاء حجز القطعة " + i + " المحجوزة باسم " + uname);
+            insert_chat("him", "این کالا رزرو شده است. " + i + "رزرو شده به نام " + uname);
             console.log(reserved);
         }
     });
@@ -159,11 +159,11 @@ function add_func(i) {
 function log_in() {
     var tmp_nm = $("#nm").val();
     if (tmp_nm == "") {
-        alert("الرجاء إدخال الاسم");
+        alert("لطفا نام خود را وارد کنید!");
         return;
     }
     uname = tmp_nm;
-    insert_chat("bot", "أهلاً بكم في متجرنا..");
+    insert_chat("bot", "به فروشگاه ما خوش آمدید!");
     $("#login").fadeOut();
 }
 
@@ -183,4 +183,3 @@ $(document).ready(function () {
         document.getElementById("nm").focus();
     }, 2000);
 });
-

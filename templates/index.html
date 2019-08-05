@@ -6,18 +6,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Fashion</title>
+    <title>فروشگاه لباس</title>
 
-    <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" /> -->
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+    <link rel="stylesheet" href="css/style.css" />
 
 </head>
 
 <body>
-    <div id="ld" class="loading">جارٍ تحميل الصفحة. الرجاء الانتظار</div>
+    <div id="ld" class="loading">صفحه در حال بارگذاری است، لطفا منتظر بمانید!</div>
     <div class="header">
-        <span class="header-element store-name">تشات بوت لمتجر ألبسة</span>
-        <a class="header-element about">عن المطورين</a>
+        <span class="header-element store-name">گفتگو برای خرید لباس</span>
+        <a class="header-element about">درباره توسعه دهندگان</a>
     </div>
     <div class="store-body">
         <div class="store fh">
@@ -32,9 +32,9 @@
                 <ul id="msg-ul">
                 </ul>
                 <div class="chat-box">
-                    <textarea wrap="off" placeholder="اسأل سؤالاً ..." dir="rtl"></textarea>
+                    <textarea wrap="off" placeholder="سوال خود را بپرسید ..." dir="rtl"></textarea>
                     <button id="send">
-                        أرسل
+                        ارسال
                     </button>
                 </div>
             </div>
@@ -43,18 +43,18 @@
 
     <div id="login" class="modal" style="padding: 10px 20%">
         <div class="modal-log-content">
-            <p id="wlcm">أهلا وسهلا بك في متجرنا</p>
-            <label style="font-size: 22px" for="nm">اسم الزبون:</label>
-            <input type="text" id="nm" name="uname" dir="rtl" placeholder="من فضلك, أدخل اسمك...">
-            <label class="container" onclick="genChoose(true)">ذكر
+            <p id="wlcm">به فروشگاه ما خوش آمدید!</p>
+            <label style="font-size: 22px" for="nm">نام مشتری:</label>
+            <input type="text" id="nm" name="uname" dir="rtl" placeholder="نام خود را وارد کنید...">
+            <label class="container" onclick="genChoose(true)">آقا
                 <input id="ml" type="radio" name="radio" checked value="male">
                 <span class="checkmark"></span>
             </label>
-            <label class="container" onclick="genChoose(false)">أنثى
+            <label class="container" onclick="genChoose(false)">خانم
                 <input id="fl" type="radio" name="radio" value="female">
                 <span class="checkmark"></span>
             </label>
-            <button type="button" onclick="log_in()">إدخل إلى المتجر</button>
+            <button type="button" onclick="log_in()">وارد فروشگاه شوید!</button>
         </div>
     </div>
 
@@ -66,15 +66,16 @@
     <div id="myModal1" class="modal" style="padding: 70px;">
         <div class="modal-dev-content animate-top devs-shadow">
             <header style="direction: rtl; padding: 5px 40px; background-color: dodgerblue;">
-                <p style="display: inline-block; font-size: 45px; color: white">المطورون</p>
+                <p style="display: inline-block; font-size: 45px; color: white">توسعه دهندگان</p>
                 <span id="close2">&times;</span>
             </header>
-            <p class="devs">جهاد ديوب</p>
-            <p class="devs">رشاد خرما</p>
-            <p class="devs">روان ابراهيم</p>
+            <p class="devs">مریم روشنفکر</p>
+            <p class="devs">مهدی حسینی مقدم</p>
+            <p class="devs">جواد خدادادی</p>
+            <p class="devs">امین کنعانی</p>
             <footer style="background-color: dodgerblue; color: white; text-align: left; padding: 0 40px;">
                 <p style="padding: 10px 5px;">
-                    كلية الهندسة المعلوماتية - جامعة تشرين - مدينة اللاذقية
+کمپ استارپی دیجیکالانکست
                 </p>
             </footer>
         </div>
